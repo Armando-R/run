@@ -3,11 +3,14 @@ mydataRead<-function(x="~/ShinyApps/run/prova.csv"){
   return(data1) 
 }
 insertRow<-function(existingDF, newrow, r){
+  lim<-length(existingDF[,2])
+  if (r<=lim)
+    {
   existingDF[seq(r+1,nrow(existingDF)+1),]<-
     existingDF[seq(r,nrow(existingDF)),]
   existingDF[r,]<-newrow
   existingDF
-  write.csv(existingDF,"~/ShinyApps/run/prova.csv", ,row.names=FALSE)
+  write.csv(existingDF,"~/ShinyApps/run/prova.csv", ,row.names=FALSE)}
 }
 changeRow<-function(existingDF, newrow, r){
   existingDF[r,]<-newrow
