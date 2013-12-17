@@ -13,9 +13,12 @@ insertRow<-function(existingDF, newrow, r){
   write.csv(existingDF,"~/ShinyApps/run/prova.csv", ,row.names=FALSE)}
 }
 changeRow<-function(existingDF, newrow, r){
+  lim<-length(existingDF[,2])
+  if (r<=lim)
+    {
   existingDF[r,]<-newrow
   existingDF
-  write.csv(existingDF,"~/ShinyApps/run/prova.csv", ,row.names=FALSE)
+  write.csv(existingDF,"~/ShinyApps/run/prova.csv", ,row.names=FALSE)}
 }
 newRow<-function(existingDF, newrow, Names){
   existingDF<-rbind(existingDF,newrow)
